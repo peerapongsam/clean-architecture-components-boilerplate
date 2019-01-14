@@ -1,3 +1,4 @@
+apply plugin: 'java-library'
 apply plugin: 'kotlin'
 
 sourceCompatibility = 1.7
@@ -7,9 +8,9 @@ dependencies {
     def dataDependencies = rootProject.ext.dataDependencies
     def dataTestDependencies = rootProject.ext.dataTestDependencies
 
-    compile project(':domain')
+    api project(':domain')
 
-    compile dataDependencies.javaxAnnotation
+    api dataDependencies.javaxAnnotation
 
     implementation dataDependencies.kotlin
     implementation dataDependencies.javaxInject

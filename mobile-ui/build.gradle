@@ -60,6 +60,16 @@ configurations.all {
     }
 }
 
+jacoco {
+    toolVersion = "0.7.9"
+}
+
+jacocoAndroidUnitTestReport {
+    csv.enabled false
+    html.enabled false
+    xml.enabled true
+}
+
 dependencies {
     def mobileUiDependencies = rootProject.ext.mobileUiDependencies
     def mobileUiTestDependencies = rootProject.ext.mobileUiTestDependencies
@@ -86,9 +96,9 @@ dependencies {
     implementation mobileUiDependencies.dagger
     implementation mobileUiDependencies.daggerSupport
 
-    compile presentationDependencies.archRuntime
-    compile presentationDependencies.archExtensions
-    compile "android.arch.persistence.room:rxjava2:1.0.0-alpha9-1"
+    api presentationDependencies.archRuntime
+    api presentationDependencies.archExtensions
+    api "android.arch.persistence.room:rxjava2:1.1.1"
     kapt presentationDependencies.archCompiler
 
     testImplementation mobileUiTestDependencies.kotlinJUnit
